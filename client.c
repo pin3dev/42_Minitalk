@@ -3,62 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ivbatist <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pin3dev <pinedev@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:13:38 by ivbatist          #+#    #+#             */
-/*   Updated: 2023/04/06 20:47:48 by ivbatist         ###   ########.fr       */
+/*   Updated: 2024/08/08 17:08:36 by pin3dev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+#include <stdbool.h>
 
-void	codificar_msg(int pid, char *s)
+void	msgEncoder(int pid, char *str)
 {
 	int	i;
-	int	casa_bi;
-	int	caracter;
+	int	binaryBase;
+	int	character;
 
-	casa_bi = 0;
+	binaryBase = 0;
 	i = 0;
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		caracter = s[i];
-		while (casa_bi < 8)
+		character = str[i];
+		while (binaryBase < 8)
 		{
-			if ((caracter & 1) == 1)
+			if ((character & 1) == 1)
 				kill(pid, SIGUSR1);
-			else if ((caracter & 1) == 0)
+			else if ((character & 1) == 0)
 				kill(pid, SIGUSR2);
 			usleep(200);
-			caracter = caracter >> 1;
-			casa_bi++;
+			character = character >> 1;
+			binaryBase++;
 		}
 		i++;
-		casa_bi = 0;
+		binaryBase = 0;
 	}
 }
 
-int	verif_param(int argc)
+bool	checkArgsAmount(int argc)
 {
-	int	verif;
-
-	verif = 0;
 	if (argc != 3)
-		ft_printf ("Verifique entradas: './client' 'pid' 'sua msg'");
-	else
-		verif = 1;
-	return (verif);
+		return (ft_printf ("Usage Error: [try] ./client <server pid> <your msg>"), false);
+	return (true);
 }
 
 int	main(int argc, char **argv)
 {
 	int	pid;
 
-	if (verif_param(argc) == 1)
+	if (checkArgsAmount(argc))
 	{
 		pid = ft_atoi(argv[1]);
-		codificar_msg(pid, argv[2]);
-		codificar_msg(pid, "\n");
+		msgEncoder(pid, argv[2]);
+		msgEncoder(pid, "\n");
 	}
 	return (0);
 }

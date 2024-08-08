@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ivbatist <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pin3dev <pinedev@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:35:14 by ivbatist          #+#    #+#             */
-/*   Updated: 2023/04/07 00:35:08 by ivbatist         ###   ########.fr       */
+/*   Updated: 2024/08/08 17:12:36 by pin3dev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	descodificar_msg(int sig)
+void	msgDecoder(int sig)
 {
-	static int	casa_bi;
-	static char	caracter;
+	static int	binaryBase;
+	static char	character;
 
 	if (sig == SIGUSR1)
-		caracter = caracter | (1 << casa_bi);
-	casa_bi++;
-	if (casa_bi == 8)
+		character = character | (1 << binaryBase);
+	binaryBase++;
+	if (binaryBase == 8)
 	{
-		casa_bi = 0;
-		write(1, &caracter, 1);
-		caracter = 0;
+		binaryBase = 0;
+		write(1, &character, 1);
+		character = 0;
 	}
 }
 
@@ -33,13 +33,13 @@ int	main(void)
 	int						pid;
 	struct sigaction		meu;
 
-	meu.sa_handler = &descodificar_msg;
+	meu.sa_handler = &msgDecoder;
 	sigemptyset(&meu.sa_mask);
 	meu.sa_flags = SA_RESTART;
 	sigaction(SIGUSR1, &meu, NULL);
 	sigaction(SIGUSR2, &meu, NULL);
 	pid = getpid();
-	ft_printf("O numero PID do processo --> %d\n", pid);
+	ft_printf("Process PID number --> %d\n", pid);
 	while (1)
 		pause();
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: pin3dev <pinedev@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:35:14 by ivbatist          #+#    #+#             */
-/*   Updated: 2024/09/27 19:01:18 by pin3dev          ###   ########.fr       */
+/*   Updated: 2024/09/27 19:03:26 by pin3dev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,11 @@ void	decoder(int sig)
 
 int	main(void)
 {
-	int						pid;
-	//struct sigaction		sig;
+	int	pid;
 
 	pid = getpid();
 	ft_printf("Process PID number --> %d\n", pid);
 	
-/* 	sig.sa_handler = &decoder;
-	sig.sa_flags = SA_RESTART;
-	
-	sigemptyset(&sig.sa_mask);
-	sigaction(SIGUSR1, &sig, NULL);
-	sigaction(SIGUSR2, &sig, NULL); */
 	signal(SIGUSR1, decoder);
 	signal(SIGUSR2, decoder);
 	

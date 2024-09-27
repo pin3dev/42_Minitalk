@@ -6,11 +6,11 @@
 /*   By: pin3dev <pinedev@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:35:14 by ivbatist          #+#    #+#             */
-/*   Updated: 2024/08/08 17:12:36 by pin3dev          ###   ########.fr       */
+/*   Updated: 2024/09/27 03:57:03 by pin3dev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "../inc/minitalk.h"
 
 void	msgDecoder(int sig)
 {

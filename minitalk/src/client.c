@@ -6,12 +6,11 @@
 /*   By: pin3dev <pinedev@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:13:38 by ivbatist          #+#    #+#             */
-/*   Updated: 2024/08/08 17:08:36 by pin3dev          ###   ########.fr       */
+/*   Updated: 2024/09/27 04:21:31 by pin3dev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
-#include <stdbool.h>
+#include "../inc/minitalk.h"
 
 void	msgEncoder(int pid, char *str)
 {

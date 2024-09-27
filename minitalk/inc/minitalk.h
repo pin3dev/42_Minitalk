@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ivbatist <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pin3dev <pinedev@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/26 01:03:28 by ivbatist          #+#    #+#             */
-/*   Updated: 2022/11/26 01:03:36 by ivbatist         ###   ########.fr       */
+/*   Created: 2023/04/06 23:15:24 by ivbatist          #+#    #+#             */
+/*   Updated: 2024/09/27 14:02:59 by pin3dev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef MINITALK_H
+# define MINITALK_H
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
-{
-	if (!f)
-		return ;
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
-}
+#include <signal.h>
+#include <stdbool.h>
+#include "../../../42_ft_Printf/printf/inc/ft_printf.h"
+#include "../../../42_Libft/libft/inc/libft.h"
+
+#endif

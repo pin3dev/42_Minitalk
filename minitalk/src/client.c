@@ -6,11 +6,11 @@
 /*   By: pin3dev <pinedev@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:13:38 by ivbatist          #+#    #+#             */
-/*   Updated: 2024/09/27 21:08:30 by pin3dev          ###   ########.fr       */
+/*   Updated: 2024/10/25 00:33:47 by pin3dev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minitalk.h"
+#include "minitalk.h"
 
 /**
  * @brief Encodes a string into binary and sends it as signals to a server.

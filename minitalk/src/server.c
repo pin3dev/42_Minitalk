@@ -6,11 +6,11 @@
 /*   By: pin3dev <pinedev@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 20:35:14 by ivbatist          #+#    #+#             */
-/*   Updated: 2024/09/27 21:09:41 by pin3dev          ###   ########.fr       */
+/*   Updated: 2024/10/25 00:33:53 by pin3dev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minitalk.h"
+#include "minitalk.h"
 
 /**
  * @brief Decodes signals received from the client and reconstructs characters.
